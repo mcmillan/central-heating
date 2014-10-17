@@ -1,0 +1,29 @@
+{
+  "name": "central-heating",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A boilerplate for front-end apps.",
+  "main": "gulpfile.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcmillan/central-heating.git"
+  },
+  "author": "Josh McMillan <josh@joshmcmillan.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcmillan/central-heating/issues"
+  },
+  "homepage": "https://github.com/central-heating/threedom",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.8",
+    "gulp-coffee": "^2.2.0",
+    "gulp-jade": "^0.8.0",
+    "gulp-stylus": "^1.3.3",
+    "gulp-uglify": "^1.0.1",
+    "nib": "^1.0.4"
+  }
+}
