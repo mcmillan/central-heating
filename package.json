@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/mcmillan/central-heating/issues"
   },
-  "homepage": "https://github.com/central-heating/threedom",
+  "homepage": "https://github.com/mcmillan/central-heating",
   "devDependencies": {
     "coffee-script": "^1.8.0",
     "gulp": "^3.8.8",
