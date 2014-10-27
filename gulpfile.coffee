@@ -1,15 +1,19 @@
-gulp   = require('gulp')
-uglify = require('gulp-uglify')
-coffee = require('gulp-coffee')
-jade   = require('gulp-jade')
-stylus = require('gulp-stylus')
+source     = require('vinyl-source-stream')
+gulp       = require('gulp')
+uglify     = require('gulp-uglify')
+browserify = require('browserify')
+streamify  = require('gulp-streamify')
+jade       = require('gulp-jade')
+stylus     = require('gulp-stylus')
 
 gulp.task 'coffee', ->
-  gulp.src('src/coffee/app.coffee')
-      .pipe(coffee())
-      .pipe(uglify())
-      .pipe(gulp.dest('dist/js'))
-
+  browserify('./src/coffee/app.coffee')
+    .transform('coffeeify')
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(streamify(uglify()))
+    .pipe(gulp.dest('dist/js'))
+    
 gulp.task 'jade', ->
   gulp.src('src/jade/**/*.jade')
       .pipe(jade())
