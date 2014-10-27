@@ -1,11 +1,18 @@
-source     = require('vinyl-source-stream')
-gulp       = require('gulp')
-uglify     = require('gulp-uglify')
-browserify = require('browserify')
-streamify  = require('gulp-streamify')
-jade       = require('gulp-jade')
-stylus     = require('gulp-stylus')
+source      = require('vinyl-source-stream')
+gulp        = require('gulp')
+uglify      = require('gulp-uglify')
+browserify  = require('browserify')
+streamify   = require('gulp-streamify')
+jade        = require('gulp-jade')
+stylus      = require('gulp-stylus')
+browserSync = require('browser-sync')
 
+gulp.task 'serve', ->
+  browserSync(
+    server:
+      baseDir: 'dist'
+  )
+  
 gulp.task 'coffee', ->
   browserify('./src/coffee/app.coffee')
     .transform('coffeeify')
@@ -35,4 +42,4 @@ gulp.task 'watch', ->
   gulp.watch('src/img/**/*', ['img'])
 
 gulp.task('build', ['coffee', 'jade', 'stylus', 'img'])
-gulp.task('default', ['build', 'watch'])
+gulp.task('default', ['build', 'watch', 'serve'])
